@@ -1,0 +1,286 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--background);
+  backdrop-filter: blur(8px);
+}
+
+.headerContent {
+  display: flex;
+  height: 3.5rem;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.authButtons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.primaryButton:hover {
+  background-color: var(--primary);
+  opacity: 0.9;
+}
+
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.secondaryButton:hover {
+  background-color: var(--secondary);
+  opacity: 0.9;
+}
+
+.main {
+  flex: 1;
+}
+
+.hero {
+  width: 100%;
+  padding: 3rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 6rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    padding: 8rem 1.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero {
+    padding: 12rem 1.5rem;
+  }
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.heroTitle {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 640px) {
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .heroTitle {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroTitle {
+    font-size: 3.75rem;
+  }
+}
+
+.heroDescription {
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--muted-foreground);
+  font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  .heroDescription {
+    font-size: 1.25rem;
+  }
+}
+
+.heroButtons {
+  display: flex;
+  gap: 1rem;
+}
+
+.features {
+  width: 100%;
+  padding: 3rem 1rem;
+  background-color: var(--muted);
+}
+
+@media (min-width: 768px) {
+  .features {
+    padding: 6rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .features {
+    padding: 8rem 1.5rem;
+  }
+}
+
+.featuresContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.featuresHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.featuresTitle {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .featuresTitle {
+    font-size: 3rem;
+  }
+}
+
+.featuresDescription {
+  max-width: 700px;
+  color: var(--muted-foreground);
+  font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  .featuresDescription {
+    font-size: 1.125rem;
+  }
+}
+
+.featuresList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1280px;
+  padding: 3rem 0;
+}
+
+@media (min-width: 1024px) {
+  .featuresList {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+}
+
+.featureItem {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.featureTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.featureDescription {
+  color: var(--muted-foreground);
+}
+
+.footer {
+  width: 100%;
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 0;
+}
+
+.footerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .footerContent {
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
+
+.footerText {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+

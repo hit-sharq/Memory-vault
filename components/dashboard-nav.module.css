@@ -1,0 +1,37 @@
+.nav {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem 0.5rem;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.navLink:hover {
+  background-color: var(--secondary);
+}
+
+.active {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  font-weight: 500;
+}
+
+.active:hover {
+  background-color: var(--primary);
+  opacity: 0.9;
+}
+
+.icon {
+  width: 1rem;
+  height: 1rem;
+}
+
