@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  
+  .description {
+    color: var(--muted-foreground);
+  }
+  
+  

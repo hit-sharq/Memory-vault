@@ -2,17 +2,15 @@ import Link from "next/link"
 import Image from "next/image"
 import { format } from "date-fns"
 import { getMemories } from "@/actions/memory"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Eye } from "lucide-react"
+import styles from "./memories-list.module.css"
 
 export async function MemoriesList() {
   const result = await getMemories()
 
   if (!result.success) {
     return (
-      <div className="flex flex-col items-center justify-center py-12">
-        <p className="text-muted-foreground">Failed to load memories</p>
+      <div className={styles.empty}>
+        <p>Failed to load memories</p>
       </div>
     )
   }
@@ -21,46 +19,56 @@ export async function MemoriesList() {
 
   if (memories.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center py-12">
-        <p className="text-muted-foreground">You haven't created any memories yet</p>
-        <Button asChild className="mt-4">
-          <Link href="/dashboard/new">Create your first memory</Link>
-        </Button>
+      <div className={styles.empty}>
+        <p>You haven't created any memories yet</p>
+        <Link href="/dashboard/new" className={styles.createButton}>
+          Create your first memory
+        </Link>
       </div>
     )
   }
 
   return (
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <div className={styles.grid}>
       {memories.map((memory) => (
-        <Card key={memory.id} className="overflow-hidden">
+        <Link href={`/dashboard/memory/${memory.id}`} key={memory.id} className={styles.card}>
           {memory.imageUrl && (
-            <div className="aspect-video w-full overflow-hidden">
+            <div className={styles.imageContainer}>
               <Image
                 src={memory.imageUrl || "/placeholder.svg"}
                 alt={memory.title}
                 width={500}
                 height={300}
-                className="h-full w-full object-cover transition-all hover:scale-105"
+                className={styles.image}
               />
             </div>
           )}
-          <CardHeader>
-            <CardTitle>{memory.title}</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="line-clamp-3 text-muted-foreground">{memory.description}</p>
-          </CardContent>
-          <CardFooter className="flex items-center justify-between">
-            <p className="text-sm text-muted-foreground">{format(new Date(memory.createdAt), "MMM d, yyyy")}</p>
-            <Button variant="outline" size="sm" asChild>
-              <Link href={`/dashboard/memory/${memory.id}`}>
-                <Eye className="mr-2 h-4 w-4" />
+          <div className={styles.content}>
+            <h2 className={styles.title}>{memory.title}</h2>
+            <p className={styles.description}>{memory.description}</p>
+            <div className={styles.footer}>
+              <p className={styles.date}>{format(new Date(memory.createdAt), "MMM d, yyyy")}</p>
+              <span className={styles.viewButton}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className={styles.icon}
+                >
+                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
                 View
-              </Link>
-            </Button>
-          </CardFooter>
-        </Card>
+              </span>
+            </div>
+          </div>
+        </Link>
       ))}
     </div>
   )

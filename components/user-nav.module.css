@@ -1,122 +1,124 @@
 .container {
-    position: relative;
-  }
-  
-  .trigger {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 9999px;
-    background-color: var(--secondary);
-    color: var(--secondary-foreground);
-    cursor: pointer;
-    transition: background-color 0.2s;
-    border: none;
-  }
-  
-  .trigger:hover {
-    background-color: var(--muted);
-  }
-  
-  .avatar {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    border-radius: 9999px;
-    overflow: hidden;
-  }
-  
-  .avatarImage {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .avatarFallback {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    font-weight: 500;
-    font-size: 0.875rem;
-    text-transform: uppercase;
-  }
-  
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 99;
-  }
-  
-  .dropdown {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    z-index: 100;
-    width: 16rem;
-    margin-top: 0.5rem;
-    border-radius: var(--radius);
-    background-color: var(--background);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    overflow: hidden;
-  }
-  
-  .dropdownHeader {
-    padding: 1rem;
-  }
-  
-  .userInfo {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-  
-  .userName {
-    font-weight: 500;
-  }
-  
-  .userEmail {
-    font-size: 0.875rem;
-    color: var(--muted-foreground);
-  }
-  
-  .dropdownDivider {
-    height: 1px;
-    background-color: var(--border);
-    margin: 0.5rem 0;
-  }
-  
-  .dropdownItem {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1rem;
-    font-size: 0.875rem;
-    color: var(--foreground);
-    transition: background-color 0.2s;
-    text-decoration: none;
-    background: none;
-    border: none;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-  }
-  
-  .dropdownItem:hover {
-    background-color: var(--secondary);
-  }
-  
-  .icon {
-    width: 1rem;
-    height: 1rem;
-    color: var(--muted-foreground);
-  }
-  
-  
+  position: relative;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background-color: #1a2235;
+  color: var(--foreground);
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border: none;
+}
+
+.trigger:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.avatar {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.avatarImage {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.avatarFallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 100;
+  width: 16rem;
+  margin-top: 0.5rem;
+  border-radius: var(--radius);
+  background-color: #1a2235;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.dropdownHeader {
+  padding: 1rem;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.userName {
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.userEmail {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.dropdownDivider {
+  height: 1px;
+  background-color: var(--border);
+  margin: 0.5rem 0;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  color: var(--foreground);
+  transition: background-color 0.2s;
+  text-decoration: none;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdownItem:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.icon {
+  width: 1rem;
+  height: 1rem;
+  color: var(--muted-foreground);
+}
+

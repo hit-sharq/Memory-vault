@@ -14,6 +14,7 @@
   font-size: 1.875rem;
   font-weight: 700;
   line-height: 1.2;
+  color: var(--foreground);
 }
 
 .newButton {
@@ -30,7 +31,7 @@
 }
 
 .newButton:hover {
-  opacity: 0.9;
+  background-color: #2563eb;
 }
 
 .icon {

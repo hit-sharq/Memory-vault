@@ -2,6 +2,7 @@
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  background-color: var(--background);
 }
 
 .header {
@@ -10,7 +11,7 @@
   z-index: 50;
   width: 100%;
   border-bottom: 1px solid var(--border);
-  background-color: var(--background);
+  background-color: #111827;
   backdrop-filter: blur(8px);
 }
 
@@ -30,6 +31,7 @@
   gap: 0.5rem;
   font-weight: 600;
   font-size: 1.25rem;
+  color: var(--foreground);
 }
 
 .nav {
@@ -58,8 +60,7 @@
 }
 
 .primaryButton:hover {
-  background-color: var(--primary);
-  opacity: 0.9;
+  background-color: #2563eb;
 }
 
 .secondaryButton {
@@ -69,15 +70,15 @@
   border-radius: var(--radius);
   font-weight: 500;
   padding: 0.5rem 1rem;
-  background-color: var(--secondary);
-  color: var(--secondary-foreground);
+  background-color: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--border);
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
 .secondaryButton:hover {
-  background-color: var(--secondary);
-  opacity: 0.9;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .main {
@@ -87,6 +88,7 @@
 .hero {
   width: 100%;
   padding: 3rem 1rem;
+  background-color: #111827;
 }
 
 @media (min-width: 768px) {
@@ -127,6 +129,7 @@
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1rem;
+  color: var(--foreground);
 }
 
 @media (min-width: 640px) {
@@ -168,7 +171,7 @@
 .features {
   width: 100%;
   padding: 3rem 1rem;
-  background-color: var(--muted);
+  background-color: var(--background);
 }
 
 @media (min-width: 768px) {
@@ -204,6 +207,7 @@
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 0.5rem;
+  color: var(--foreground);
 }
 
 @media (min-width: 640px) {
@@ -243,11 +247,15 @@
 .featureItem {
   display: grid;
   gap: 0.25rem;
+  padding: 1.5rem;
+  background-color: #1a2235;
+  border-radius: var(--radius);
 }
 
 .featureTitle {
   font-size: 1.25rem;
   font-weight: 700;
+  color: var(--foreground);
 }
 
 .featureDescription {
@@ -258,6 +266,7 @@
   width: 100%;
   border-top: 1px solid var(--border);
   padding: 1.5rem 0;
+  background-color: #111827;
 }
 
 .footerContent {

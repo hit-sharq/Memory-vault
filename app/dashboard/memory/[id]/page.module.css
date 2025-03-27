@@ -17,13 +17,13 @@
   width: 2rem;
   height: 2rem;
   border-radius: 9999px;
-  background-color: var(--secondary);
-  color: var(--secondary-foreground);
+  background-color: #1a2235;
+  color: var(--foreground);
   transition: background-color 0.2s;
 }
 
 .backButton:hover {
-  background-color: var(--muted);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .icon {
@@ -35,5 +35,6 @@
   font-size: 1.875rem;
   font-weight: 700;
   line-height: 1.2;
+  color: var(--foreground);
 }
 

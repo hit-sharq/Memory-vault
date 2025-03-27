@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { format } from "date-fns"
-import { Card, CardContent } from "@/components/ui/card"
 import { DeleteMemoryButton } from "@/components/delete-memory-button"
+import styles from "./memory-detail.module.css"
 
 interface MemoryDetailProps {
   memory: {
@@ -16,30 +16,28 @@ interface MemoryDetailProps {
 
 export function MemoryDetail({ memory }: MemoryDetailProps) {
   return (
-    <Card>
-      <CardContent className="pt-6">
+    <div className={styles.card}>
+      <div className={styles.cardContent}>
         {memory.imageUrl && (
-          <div className="mb-6 aspect-video w-full overflow-hidden rounded-md">
+          <div className={styles.imageContainer}>
             <Image
               src={memory.imageUrl || "/placeholder.svg"}
               alt={memory.title}
               width={1200}
               height={675}
-              className="h-full w-full object-cover"
+              className={styles.image}
             />
           </div>
         )}
-        <div className="mb-4 flex items-center justify-between">
-          <p className="text-sm text-muted-foreground">
-            Created on {format(new Date(memory.createdAt), "MMMM d, yyyy")}
-          </p>
+        <div className={styles.header}>
+          <p className={styles.date}>Created on {format(new Date(memory.createdAt), "MMMM d, yyyy")}</p>
           <DeleteMemoryButton id={memory.id} />
         </div>
-        <div className="prose max-w-none dark:prose-invert">
+        <div className={styles.description}>
           <p>{memory.description}</p>
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   )
 }
 

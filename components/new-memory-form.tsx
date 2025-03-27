@@ -5,15 +5,9 @@ import type React from "react"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { Alert, AlertDescription } from "@/components/ui/alert"
+import styles from "./new-memory-form.module.css"
 import { uploadImage } from "@/actions/upload-image"
 import { createMemory } from "@/actions/memory"
-import { ImagePlus, Loader2, X } from "lucide-react"
 
 export function NewMemoryForm() {
   const router = useRouter()
@@ -84,94 +78,129 @@ export function NewMemoryForm() {
   }
 
   return (
-    <Card>
-      <CardContent className="pt-6">
-        {error && (
-          <Alert variant="destructive" className="mb-4">
-            <AlertDescription>{error}</AlertDescription>
-          </Alert>
-        )}
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="space-y-2">
-            <Label htmlFor="title">Title</Label>
-            <Input
-              id="title"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              placeholder="Enter a title for your memory"
-              required
-            />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="description">Description</Label>
-            <Textarea
-              id="description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              placeholder="Describe your memory..."
-              rows={5}
-              required
-            />
-          </div>
-          <div className="space-y-2">
-            <Label>Image (Optional)</Label>
-            {imageUrl ? (
-              <div className="relative aspect-video w-full overflow-hidden rounded-md border">
-                <Image src={imageUrl || "/placeholder.svg"} alt="Memory image" fill className="object-cover" />
-                <Button
-                  type="button"
-                  variant="destructive"
-                  size="icon"
-                  className="absolute right-2 top-2"
-                  onClick={removeImage}
+    <div className={styles.card}>
+      {error && (
+        <div className={styles.error}>
+          <p>{error}</p>
+        </div>
+      )}
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <div className={styles.formGroup}>
+          <label htmlFor="title" className={styles.label}>
+            Title
+          </label>
+          <input
+            id="title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="Enter a title for your memory"
+            className={styles.input}
+            required
+          />
+        </div>
+        <div className={styles.formGroup}>
+          <label htmlFor="description" className={styles.label}>
+            Description
+          </label>
+          <textarea
+            id="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            placeholder="Describe your memory..."
+            rows={5}
+            className={styles.textarea}
+            required
+          />
+        </div>
+        <div className={styles.formGroup}>
+          <label className={styles.label}>Image (Optional)</label>
+          {imageUrl ? (
+            <div className={styles.imagePreview}>
+              <Image
+                src={imageUrl || "/placeholder.svg"}
+                alt="Memory image"
+                width={500}
+                height={300}
+                className={styles.previewImage}
+              />
+              <button type="button" className={styles.removeButton} onClick={removeImage}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
-                  <X className="h-4 w-4" />
-                </Button>
-              </div>
-            ) : (
-              <div className="flex items-center gap-4">
-                <Label
-                  htmlFor="image"
-                  className="flex h-32 w-full cursor-pointer flex-col items-center justify-center rounded-md border border-dashed"
-                >
-                  {isUploading ? (
-                    <Loader2 className="h-6 w-6 animate-spin" />
-                  ) : (
-                    <>
-                      <ImagePlus className="h-6 w-6" />
-                      <span className="mt-2 text-sm text-muted-foreground">Upload an image</span>
-                    </>
-                  )}
-                  <Input
-                    id="image"
-                    type="file"
-                    accept="image/*"
-                    className="hidden"
-                    onChange={handleImageUpload}
-                    disabled={isUploading}
-                  />
-                </Label>
-              </div>
-            )}
-          </div>
-          <div className="flex justify-end gap-4">
-            <Button type="button" variant="outline" onClick={() => router.back()} disabled={isSubmitting}>
-              Cancel
-            </Button>
-            <Button type="submit" disabled={isSubmitting || isUploading}>
-              {isSubmitting ? (
-                <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Saving...
-                </>
-              ) : (
-                "Save Memory"
-              )}
-            </Button>
-          </div>
-        </form>
-      </CardContent>
-    </Card>
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+          ) : (
+            <div className={styles.uploadContainer}>
+              <label htmlFor="image" className={styles.uploadLabel}>
+                {isUploading ? (
+                  <svg
+                    className={styles.spinner}
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M21 12a9 9 0 1 1-6.219-8.56"></path>
+                  </svg>
+                ) : (
+                  <>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className={styles.uploadIcon}
+                    >
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <line x1="12" y1="8" x2="12" y2="16"></line>
+                      <line x1="8" y1="12" x2="16" y2="12"></line>
+                    </svg>
+                    <span>Upload an image</span>
+                  </>
+                )}
+                <input
+                  id="image"
+                  type="file"
+                  accept="image/*"
+                  className={styles.fileInput}
+                  onChange={handleImageUpload}
+                  disabled={isUploading}
+                />
+              </label>
+            </div>
+          )}
+        </div>
+        <div className={styles.actions}>
+          <button type="button" className={styles.cancelButton} onClick={() => router.back()} disabled={isSubmitting}>
+            Cancel
+          </button>
+          <button type="submit" className={styles.saveButton} disabled={isSubmitting || isUploading}>
+            {isSubmitting ? "Saving..." : "Save Memory"}
+          </button>
+        </div>
+      </form>
+    </div>
   )
 }
 
