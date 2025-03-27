@@ -41,12 +41,20 @@ export default async function Home() {
               </p>
             </div>
             <div className={styles.heroButtons}>
-              <Link href={session ? "/dashboard" : "/register"} className={styles.primaryButton}>
-                {session ? "Go to Dashboard" : "Get Started"}
-              </Link>
-              <Link href="#features" className={styles.secondaryButton}>
-                Learn More
-              </Link>
+              {session ? (
+                <Link href="/dashboard" className={styles.primaryButton}>
+                  Go to Dashboard
+                </Link>
+              ) : (
+                <>
+                  <Link href="/register" className={styles.primaryButton}>
+                    Get Started
+                  </Link>
+                  <Link href="/login" className={styles.secondaryButton}>
+                    Login
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </section>
@@ -74,6 +82,19 @@ export default async function Home() {
                 <p className={styles.featureDescription}>Upload and manage images to enhance your memory storage.</p>
               </div>
             </div>
+            {!session && (
+              <div className={styles.ctaContainer}>
+                <p className={styles.ctaText}>Ready to start preserving your memories?</p>
+                <div className={styles.ctaButtons}>
+                  <Link href="/register" className={styles.primaryButton}>
+                    Create an Account
+                  </Link>
+                  <Link href="/login" className={styles.secondaryButton}>
+                    Login
+                  </Link>
+                </div>
+              </div>
+            )}
           </div>
         </section>
       </main>

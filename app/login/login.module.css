@@ -3,7 +3,7 @@
   min-height: 100vh;
   align-items: center;
   justify-content: center;
-  background-color: var(--background);
+  background-color: #0f172a;
   padding: 1rem;
 }
 
@@ -11,24 +11,24 @@
   width: 100%;
   max-width: 28rem;
   background-color: #1a2235;
-  border-radius: var(--radius);
+  border-radius: 0.5rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .cardHeader {
   padding: 1.5rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid #334155;
 }
 
 .cardTitle {
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.25rem;
-  color: var(--foreground);
+  color: #f8fafc;
 }
 
 .cardDescription {
-  color: var(--muted-foreground);
+  color: #94a3b8;
   font-size: 0.875rem;
 }
 
@@ -39,7 +39,7 @@
 .success {
   padding: 0.75rem;
   margin-bottom: 1rem;
-  border-radius: var(--radius);
+  border-radius: 0.5rem;
   background-color: #10b981;
   color: white;
   font-size: 0.875rem;
@@ -48,9 +48,9 @@
 .alert {
   padding: 0.75rem;
   margin-bottom: 1rem;
-  border-radius: var(--radius);
-  background-color: var(--destructive);
-  color: var(--destructive-foreground);
+  border-radius: 0.5rem;
+  background-color: #ef4444;
+  color: white;
   font-size: 0.875rem;
 }
 
@@ -75,20 +75,20 @@
 .label {
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--foreground);
+  color: #f8fafc;
 }
 
 .input {
   padding: 0.75rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border: 1px solid #334155;
+  border-radius: 0.5rem;
   background-color: #111827;
-  color: var(--foreground);
+  color: #f8fafc;
   font-size: 0.875rem;
 }
 
 .input:focus {
-  outline: 2px solid var(--ring);
+  outline: 2px solid #3b82f6;
   outline-offset: 2px;
 }
 
@@ -97,10 +97,10 @@
   align-items: center;
   justify-content: center;
   padding: 0.75rem 1rem;
-  background-color: var(--primary);
-  color: var(--primary-foreground);
+  background-color: #3b82f6;
+  color: white;
   font-weight: 500;
-  border-radius: var(--radius);
+  border-radius: 0.5rem;
   border: none;
   cursor: pointer;
   transition: background-color 0.2s;
@@ -108,7 +108,7 @@
 }
 
 .submitButton:hover {
-  opacity: 0.9;
+  background-color: #2563eb;
 }
 
 .submitButton:disabled {
@@ -129,7 +129,7 @@
   left: 0;
   right: 0;
   height: 1px;
-  background-color: var(--border);
+  background-color: #334155;
 }
 
 .dividerText {
@@ -137,7 +137,7 @@
   display: inline-block;
   padding: 0 0.5rem;
   background-color: #1a2235;
-  color: var(--muted-foreground);
+  color: #94a3b8;
   font-size: 0.75rem;
   text-transform: uppercase;
 }
@@ -149,10 +149,10 @@
   justify-content: center;
   padding: 0.75rem 1rem;
   background-color: #111827;
-  color: var(--foreground);
+  color: #f8fafc;
   font-weight: 500;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border: 1px solid #334155;
+  border-radius: 0.5rem;
   cursor: pointer;
   transition: background-color 0.2s;
 }
@@ -167,17 +167,17 @@
 
 .cardFooter {
   padding: 1.5rem;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid #334155;
   text-align: center;
 }
 
 .footerText {
   font-size: 0.875rem;
-  color: var(--muted-foreground);
+  color: #94a3b8;
 }
 
 .link {
-  color: var(--primary);
+  color: #3b82f6;
   text-decoration: underline;
   text-underline-offset: 4px;
 }

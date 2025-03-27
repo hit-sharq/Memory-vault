@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation"
+import { notFound, redirect } from "next/navigation"
 import Link from "next/link"
 import { auth } from "@/auth"
 import { db } from "@/lib/db"
@@ -15,7 +15,7 @@ export default async function MemoryPage({ params }: MemoryPageProps) {
   const session = await auth()
 
   if (!session?.user) {
-    return notFound()
+    redirect("/login")
   }
 
   const memory = await db.memory.findUnique({

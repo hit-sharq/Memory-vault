@@ -38,12 +38,12 @@ export default function RegisterPage() {
 
       if (!result.success) {
         setError(result.error || "Registration failed")
+        setIsLoading(false)
       } else {
         router.push("/login?registered=true")
       }
     } catch (error) {
       setError("An unexpected error occurred")
-    } finally {
       setIsLoading(false)
     }
   }
